@@ -12,7 +12,7 @@ import re
 # ---------------------------------------
 # Configuration
 # ---------------------------------------
-st.set_page_config(page_title="AI Travel Buddy !", page_icon="✈️", layout="wide")
+st.set_page_config(page_title="AI Travel Buddy !", page_icon="✈️", layout="centered")
 
 def load_and_inject_css(path="assets/custom.css"):
   try:
