@@ -265,6 +265,8 @@ st.title("✈️ AI Travel Buddy ! ")
 if page == "Discover":
   st.subheader("Welcome Arpita ! Let's plan a trip")
 
+  st.write("_Please use this in Light Theme (Theme can be changed from settings)_")
+
   with st.form("travel_form"):
     # if a prefill exists (from "Plan a Trip"), use it as the default
     prefill_dest = st.session_state.get("prefill", {}).get("destination", "Paris")
