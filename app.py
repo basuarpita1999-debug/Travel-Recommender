@@ -279,7 +279,12 @@ if page == "Discover":
     )
     # convert list to human-readable string for the assistant prompt
     experience_str = ", ".join(experience) if isinstance(experience, (list, tuple)) else experience
-    month = st.text_input("Travel Month", "December")
+    # Use a dropdown for month selection to avoid mistypes
+    months = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ]
+    month = st.selectbox("Travel Month", months, index=11)  # Default to December
     submitted = st.form_submit_button("Get Recommendations")
  
   if submitted:
