@@ -221,3 +221,29 @@ a.btn-book, .btn-book {
 .suggest-card + .stButton button {
   margin-top: 6px;
 }
+
+/* Force light color scheme and hide Streamlit theme toggle */
+:root { color-scheme: light !important; }
+html, body, [data-testid="stAppViewContainer"], .stApp, .reportview-container {
+  color-scheme: light !important;
+  background-color: transparent !important;
+}
+
+/* Hide Streamlit theme toggle button (defensive selectors) */
+button[title="Toggle theme"], [title="Toggle theme"], div[aria-label="Theme"] {
+  display: none !important;
+}
+
+/* Hide Streamlit footer / badge in bottom-right */
+footer[data-testid="stFooter"] {
+  display: none !important;
+}
+footer, .stFooter, .reportview-footer {
+  display: none !important;
+}
+
+/* Ensure text and panel colors stay readable in forced light mode */
+.block-container, .stSidebar, .stApp, .css-1offfwp { /* defensive selectors */
+  background-color: rgba(255,255,255,0.88) !important;
+  color: #111 !important;
+}
