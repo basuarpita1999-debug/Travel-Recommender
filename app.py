@@ -8,6 +8,7 @@ import requests
 import feedparser
 import streamlit as st
 import re
+from datetime import datetime
 
 # ---------------------------------------
 # Configuration
@@ -463,7 +464,16 @@ elif page == "Your Journeys":
 elif page == "What's Happening":
   st.subheader("What’s happening around the world")
   st.caption("Discover festivals, events and experiences worth travelling for.")
-  month_name = st.text_input("Month", "September")
+  # month + year dropdowns to avoid mistypes
+  months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ]
+  month = st.selectbox("Month", months, index=8)  # default to September
+  current_year = datetime.now().year
+  years = [str(y) for y in range(current_year, current_year + 3)]  # this year and next 2
+  year = st.selectbox("Year", years, key="year")
+  month_name = month + year
 
   st.markdown("_We will send a quick prompt we send to the Chatbot to fetch global highlights for the selected month_")
 
